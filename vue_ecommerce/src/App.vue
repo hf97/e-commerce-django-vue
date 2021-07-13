@@ -6,7 +6,7 @@
           <strong>E-Commerce</strong>
         </router-link>
 
-        <a class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu" @click="showMobileMenu = !showMobileMenu>
+        <a class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu" @click="showMobileMenu = !showMobileMenu">
           <span aria-label="true"></span>
           <span aria-label="true"></span>
           <span aria-label="true"></span>
