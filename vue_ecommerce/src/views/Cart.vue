@@ -61,10 +61,13 @@ export default {
   mounted() {
     this.cart = this.$store.state.cart
   },
+  methods: {
+    removeFromCart(item) {
+      this.cart.items = this.cart.items.filter(i => i.product.id !== item.product.id)
+    }
+  },
   computed: {
     cartTotalLength() {
-      console.log("entrou")
-      console.log(this.cart.items)
       return this.cart.items.reduce((acc, curVal) => {
         return acc += curVal.quantity
       }, 0)
