@@ -1,6 +1,4 @@
-from django.shortcuts import render
 from django.http import Http404
-from rest_framework.serializers import Serializer
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -34,7 +32,7 @@ class CategoryDetail(APIView):
         try:
             # category_name_slug
             return Category.objects.get(slug=category_slug)
-        except Product.DoesNotExist:
+        except Category.DoesNotExist:
             raise Http404
     def get(self, request, category_slug, format=None):
         category = self.get_object(category_slug)

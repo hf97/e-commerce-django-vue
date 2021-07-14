@@ -18,8 +18,8 @@
         </h2>
       </div>
 
-      <ProductBox
-        v-for="product in category.products"
+      <ProductBox 
+        v-for="product in latestProducts"
         v-bind:key="product.id"
         v-bind:product="product"
       />
@@ -48,6 +48,7 @@ export default {
   },
   methods: {
     async getLatestProducts() {
+      console.log("aqui")
       this.$store.commit('setIsLoading', true)
       await axios
         .get('api/v1/latest-products/')
