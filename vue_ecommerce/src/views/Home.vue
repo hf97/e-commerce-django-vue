@@ -48,7 +48,6 @@ export default {
   },
   methods: {
     async getLatestProducts() {
-      console.log("aqui")
       this.$store.commit('setIsLoading', true)
       await axios
         .get('api/v1/latest-products/')
