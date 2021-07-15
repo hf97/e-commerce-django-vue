@@ -9,7 +9,7 @@ from .models import Category, Product
 from .serializers import ProductSerializer, CategorySerializer
 
 
-class LatestProductList(APIView):
+class LatestProductsList(APIView):
     def get(self, request, format=None):
         # to get only first four
         products = Product.objects.all()[0:4]
