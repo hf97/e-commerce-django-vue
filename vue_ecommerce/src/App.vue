@@ -38,18 +38,20 @@
 
           <div class="navbar-item">
             <div class="buttons">
-              <template v-if="$store.state.isAuthenticated">
-                <router-link to="/my-account" class="button is-light">My account</router-link>
-              </template>
-
-              <template v-else>
-                <router-link to="/log-in" class="button is-light">Log in</router-link>
-              </template>
-
               <router-link to="/cart" class="button is-success">
                 <span class="icon"><i class="fas fa-shopping-cart"></i></span>
                 <span>Cart ({{ cartTotalLength }})</span>
               </router-link>
+
+              <template v-if="$store.state.isAuthenticated">
+                <router-link to="/my-account" class="button is-light">My account</router-link>
+                <button @click="logout()" class="button is-danger">Log out</button>
+              </template>
+
+              <template v-else>
+                <router-link to="/log-in" class="button is-light">Log in</router-link>
+                <router-link to="/sign-up" class="button is-light">Sign up</router-link>
+              </template>
             </div>
           </div>
         </div>
@@ -93,6 +95,16 @@ export default {
   },
   mounted() {
     this.cart = this.$store.state.cart
+  },
+  methods: {
+    logout() {
+      axios.defaults.headers.common["Authorization"] = ""
+      localStorage.removeItem("token")
+      localStorage.removeItem("username")
+      localStorage.removeItem("userid")
+      this.$store.commit('removeToken')
+      this.$router.push('/')
+    },
   },
   computed: {
     cartTotalLength() {
