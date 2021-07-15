@@ -6,7 +6,7 @@ import Category from '../views/Category.vue'
 import Search from '../views/Search.vue'
 import Cart from '../views/Cart.vue'
 import SignUp from '../views/SignUp.vue'
-import LogIn from '../views/Login.vue'
+import LogIn from '../views/LogIn.vue'
 import MyAccount from '../views/MyAccount.vue'
 import Checkout from '../views/Checkout.vue'
 import Success from '../views/Success.vue'
@@ -26,28 +26,8 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
-    path: '/:category_slug/:product_slug',
-    name: 'Product',
-    component: Product
-  },
-  {
-    path: '/:category_slug',
-    name: 'Category',
-    component: Category
-  },
-  {
-    path: '/search',
-    name: 'Search',
-    component: Search
-  },
-  {
-    path: '/cart',
-    name: 'Cart',
-    component: Cart
-  },
-  {
     path: '/sign-up',
-    name: 'Sign-up',
+    name: 'SignUp',
     component: SignUp
   },
   {
@@ -60,22 +40,42 @@ const routes = [
     name: 'MyAccount',
     component: MyAccount,
     meta: {
-      requireLogin: true
+        requireLogin: true
     }
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    component: Search
+  },
+  {
+    path: '/cart',
+    name: 'Cart',
+    component: Cart
+  },
+  {
+    path: '/cart/success',
+    name: 'Success',
+    component: Success
   },
   {
     path: '/cart/checkout',
     name: 'Checkout',
     component: Checkout,
     meta: {
-      requireLogin: true
+        requireLogin: true
     }
   },
   {
-    path: '/cart/success',
-    name: 'Success',
-    component: Success,
+    path: '/:category_slug/:product_slug',
+    name: 'Product',
+    component: Product
   },
+  {
+    path: '/:category_slug',
+    name: 'Category',
+    component: Category
+  }
 ]
 
 const router = createRouter({

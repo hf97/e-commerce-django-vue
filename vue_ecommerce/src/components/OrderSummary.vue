@@ -41,7 +41,7 @@ export default {
     },
     orderTotalLength(order) {
       return order.items.reduce((acc, curVal) => {
-          return acc += curVal.quantity
+        return acc += curVal.quantity
       }, 0)
     },
   }
