@@ -1,19 +1,17 @@
 <template>
-  <div id="'wrapper">
+  <div id="wrapper">
     <nav class="navbar is-dark">
       <div class="navbar-brand">
-        <router-link to="/" class="navbar-item">
-          <strong>E-Commerce</strong>
-        </router-link>
+        <router-link to="/" class="navbar-item"><strong>VUE-COMMERCE</strong></router-link>
 
         <a class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu" @click="showMobileMenu = !showMobileMenu">
-          <span aria-label="true"></span>
-          <span aria-label="true"></span>
-          <span aria-label="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </a>
       </div>
 
-      <div class="navbar-menu" id="navbar-menu" v-bind:class="{'is-active': showMobileMenu}">
+      <div class="navbar-menu" id="navbar-menu" v-bind:class="{'is-active': showMobileMenu }">
         <div class="navbar-start">
           <div class="navbar-item">
             <form method="get" action="/search">
@@ -33,11 +31,11 @@
             </form>
           </div>
         </div>
-        
+
         <div class="navbar-end">
           <router-link to="/summer" class="navbar-item">Summer</router-link>
           <router-link to="/winter" class="navbar-item">Winter</router-link>
-          
+
           <div class="navbar-item">
             <div class="buttons">
               <template v-if="$store.state.isAuthenticated">
@@ -46,11 +44,9 @@
 
               <template v-else>
                 <router-link to="/log-in" class="button is-light">Log in</router-link>
-                
-                <router-link to="/sign-up" class="button is-light">Sign up</router-link>
               </template>
 
-              <router-link to="/cart" class="button is-sucess">
+              <router-link to="/cart" class="button is-success">
                 <span class="icon"><i class="fas fa-shopping-cart"></i></span>
                 <span>Cart ({{ cartTotalLength }})</span>
               </router-link>
@@ -61,14 +57,13 @@
     </nav>
 
     <div class="is-loading-bar has-text-centered" v-bind:class="{'is-loading': $store.state.isLoading }">
-      <div class="lds-dual-ring">
-      </div>
+      <div class="lds-dual-ring"></div>
     </div>
 
     <section class="section">
       <router-view/>
     </section>
-    
+
     <footer class="footer">
       <p class="has-text-centered">Copyright (c) 2021</p>
     </footer>
@@ -119,11 +114,10 @@ export default {
   width: 80px;
   height: 80px;
 }
-
-.lds-dual-ring::after {
+.lds-dual-ring:after {
   content: " ";
   display: block;
-  widows: 64px;
+  width: 64px;
   height: 64px;
   margin: 8px;
   border-radius: 50%;
@@ -131,7 +125,6 @@ export default {
   border-color: #ccc transparent #ccc transparent;
   animation: lds-dual-ring 1.2s linear infinite;
 }
-
 @keyframes lds-dual-ring {
   0% {
     transform: rotate(0deg);
@@ -144,8 +137,10 @@ export default {
 .is-loading-bar {
   height: 0;
   overflow: hidden;
+
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+
   &.is-loading {
     height: 80px;
   }
