@@ -15,15 +15,15 @@
               <th>Total</th>
               <th></th>
             </tr>
-        </thead>
+          </thead>
 
-        <tbody>
-          <CartItem
-            v-for="item in cart.items"
-            v-bind:key="item.product.id"
-            v-bind:initialItem="item"
-            v-on:removeFromCart="removeFromCart"
-          />
+          <tbody>
+            <CartItem
+              v-for="item in cart.items"
+              v-bind:key="item.product.id"
+              v-bind:initialItem="item"
+              v-on:removeFromCart="removeFromCart"
+            />
           </tbody>
         </table>
 
@@ -74,7 +74,7 @@ export default {
     },
     cartTotalPrice() {
       return this.cart.items.reduce((acc, curVal) => {
-          return acc += curVal.product.price * curVal.quantity
+        return acc += curVal.product.price * curVal.quantity
       }, 0)
     },
   }

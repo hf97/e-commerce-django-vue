@@ -1,9 +1,9 @@
 <template>
-  <div class="paga-product">
+  <div class="page-product">
     <div class="columns is-multiline">
       <div class="column is-9">
         <figure class="image mb-6">
-          <img :src="product.get_image" />
+          <img v-bind:src="product.get_image">
         </figure>
 
         <h1 class="title">{{ product.name }}</h1>
@@ -18,11 +18,11 @@
 
         <div class="field has-addons mt-6">
           <div class="control">
-            <input type="number" class="input" min="1" v-model="quantity" />
+            <input type="number" class="input" min="1" v-model="quantity">
           </div>
 
           <div class="control">
-            <a class="button is-dark" @click="addToCart">Add to cart</a>
+            <a class="button is-dark" @click="addToCart()">Add to cart</a>
           </div>
         </div>
       </div>

@@ -1,4 +1,3 @@
-KB
 <template>
   <div class="page-log-in">
     <div class="columns">
@@ -41,6 +40,7 @@ KB
 
 <script>
 import axios from 'axios'
+
 export default {
   name: 'LogIn',
   data() {

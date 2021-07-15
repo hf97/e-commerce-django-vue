@@ -26,6 +26,7 @@
 
 <script>
 import axios from 'axios'
+
 import OrderSummary from '@/components/OrderSummary.vue'
 
 export default {
