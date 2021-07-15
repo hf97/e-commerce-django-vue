@@ -36,7 +36,7 @@ export default createStore({
       localStorage.setItem('cart', JSON.stringify(state.cart))
     },
     clearCart(state) {
-      state.cart = { items: [] }
+      state.cart.items.length = 0
       localStorage.setItem('cart', JSON.stringify(state.cart))
     },
     setIsLoading(state, status) {

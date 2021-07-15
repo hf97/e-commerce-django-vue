@@ -25,7 +25,7 @@ def checkout(request):
         try:
             charge = stripe.Charge.create(
                 amount=int(paid_amount * 100),
-                currency='USD',
+                currency='EUR',
                 description='Charge from Djackets',
                 source=serializer.validated_data['stripe_token']
             )
